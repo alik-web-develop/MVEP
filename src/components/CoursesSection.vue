@@ -1,7 +1,7 @@
 <template>
   <section class="courses-section" id="courses">
     <h2 class="section-title">
-      <span>My</span> 
+      <span>My</span>
       <span>Courses</span>
     </h2>
     
@@ -121,57 +121,57 @@ const checkout = () => {
 <style scoped>
 .courses-section {
   padding: 6rem 2rem;
-  background: #0B0B21;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background: linear-gradient(180deg, #0B0B21 0%, #111a3e 50%, #0B0B21 100%);
   position: relative;
+  overflow: hidden;
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeInUp 0.6s ease forwards;
+.courses-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(87, 12, 172, 0.2) 0%, rgba(87, 12, 172, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.courses-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(0deg, rgba(87, 12, 172, 0.2) 0%, rgba(87, 12, 172, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .section-title {
-  text-align: left;
-  margin-bottom: 4rem;
+  text-align: center;
+  margin-bottom: 3rem;
   font-size: 2.5rem;
   font-weight: 600;
-  color: #fff;
   display: flex;
-  align-items: center;
   gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
 }
 
-.section-title span:first-child {
-  color: #FF8A00;
-}
-
-.section-title span:last-child {
-  color: #FF4D4D;
-}
-
-.create-btn {
-  background: #2d3748;
-  color: #fff;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.create-btn:hover {
-  background: #374151;
-  border-color: rgba(255, 255, 255, 0.2);
+.section-title span {
+  background: linear-gradient(135deg, #5c2e77 0%, #ff4dde 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
 .courses-grid {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -183,7 +183,7 @@ const checkout = () => {
 
 .course-card {
   display: grid;
-  grid-template-columns: 300px 1fr auto;
+  grid-template-columns: 300px minmax(0, 0.9fr) auto;
   gap: 2rem;
   background: rgba(30, 41, 59, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -196,8 +196,8 @@ const checkout = () => {
 
 .course-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 138, 0, 0.3);
-  box-shadow: 0 10px 30px rgba(255, 138, 0, 0.1);
+  border-color: #8B5CF6;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
 }
 
 .course-image {
@@ -252,8 +252,10 @@ const checkout = () => {
 }
 
 .stat-item:hover {
-  background: rgba(255, 138, 0, 0.1);
-  color: #FF8A00;
+  transform: translateY(-5px);
+  border-color: #8B5CF6;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+  background:#7C3AED;
 }
 
 .price-section {
@@ -262,21 +264,24 @@ const checkout = () => {
   justify-content: center;
   align-items: flex-end;
   gap: 1rem;
+  min-width: 150px;
+  max-width: 200px;
 }
 
 .price {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #FF8A00;
+  color: #8B5CF6;
 }
 
 .quantity-controls {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(30, 41, 59, 0.5);
   padding: 0.5rem;
   border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .quantity-btn {
@@ -285,16 +290,16 @@ const checkout = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 138, 0, 0.2);
+  background: #8B5CF6;
   border: none;
-  color: #FF8A00;
+  color: #fff;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .quantity-btn:hover {
-  background: rgba(255, 138, 0, 0.3);
+  background: #7C3AED;
   transform: scale(1.1);
 }
 
@@ -306,39 +311,43 @@ const checkout = () => {
 }
 
 .cart-section {
-  margin-top: 4rem;
+  position: relative;
+  z-index: 1;
+  margin: 4rem auto 0;
   background: rgba(30, 41, 59, 0.5);
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid rgba(255, 138, 0, 0.1);
   backdrop-filter: blur(10px);
+  max-width: 800px;
+  width: 100%;
 }
 
 .cart-total {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .total-label {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: #94a3b8;
 }
 
 .total-price {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: #FF8A00;
+  color: #8B5CF6;
 }
 
 .checkout-btn {
-  background: linear-gradient(135deg, #FF8A00 0%, #FF4D4D 100%);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, #8B5CF6 100%);
   color: #fff;
   font-weight: 500;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 12px;
   border: none;
   cursor: pointer;
@@ -346,11 +355,13 @@ const checkout = () => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .checkout-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(255, 138, 0, 0.2);
+  transform: translateY(-5px);
+  border-color: #8B5CF6;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
 }
 
 .action-btn {
@@ -363,60 +374,8 @@ const checkout = () => {
 }
 
 .action-btn:hover {
-  color: #FF8A00;
-  transform: scale(1.1);
-}
-
-.stat-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.course-actions {
-  padding: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(255, 138, 0, 0.2);
-}
-
-.like-section {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.stat-circle {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.stat-circle span {
-  color: #FFD700;
-  font-size: 1rem;
-}
-
-.view-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: none;
-  border: 2px solid #FF8A00;
-  color: #FF8A00;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.view-btn:hover {
-  background: linear-gradient(135deg, #FF8A00 0%, #FFD700 100%);
-  color: #0B0B21;
-  border-color: transparent;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 138, 0, 0.3);
+  border-color: #8B5CF6;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
 }
 
 @media (max-width: 1200px) {
@@ -447,15 +406,6 @@ const checkout = () => {
     flex-direction: column;
     gap: 1.5rem;
     text-align: center;
-  }
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px rgba(255, 138, 0, 0.5);
-  }
-  to {
-    text-shadow: 0 0 20px rgba(255, 138, 0, 0.8);
   }
 }
 </style> 

@@ -59,26 +59,6 @@
                         class="form-input"
                     >
                 </div>
-                <div class="form-group">
-                    <label for="gitURL">GitHub URL</label>
-                    <input 
-                        type="url" 
-                        id="gitURL" 
-                        v-model="formData.gitURL" 
-                        required
-                        class="form-input"
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="webURL">Web URL</label>
-                    <input 
-                        type="url" 
-                        id="webURL" 
-                        v-model="formData.webURL" 
-                        required
-                        class="form-input"
-                    >
-                </div>
                 <button type="submit" class="submit-btn">
                     Создать проект
                 </button>
@@ -104,8 +84,6 @@ const formData = ref({
     description: '',
     category: '',
     image: '',
-    gitURL: '',
-    webURL: '',
     likes: 0,
     dislikes: 0
 });
@@ -128,8 +106,6 @@ const handleSubmit = () => {
         description: '',
         category: '',
         image: '',
-        gitURL: '',
-        webURL: '',
         likes: 0,
         dislikes: 0
     };

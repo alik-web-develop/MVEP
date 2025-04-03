@@ -1,11 +1,11 @@
 <template>
     <section class="experience-section" id="skills">
-        <h2 class="section-title">
-            <span>My</span>
-            <span>Skills</span>
-        </h2>
         <div class="content-wrapper">
             <div class="skills-container">
+                <h2 class="section-title">
+                    <span>My</span>
+                    <span>Skills</span>
+                </h2>
                 <div class="mt-8" v-for="skill in Skills" :key="skill.id">
                     <div class="skill-header">
                         <h4 class="skill-name">{{ skill.name }}</h4>
@@ -123,20 +123,21 @@ const Experinces = ref([
 }
 
 .section-title {
-    text-align: left;
-    margin-bottom: 3rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
     font-size: 2.5rem;
     font-weight: 600;
     display: flex;
     gap: 0.5rem;
+    width: 100%;
 }
 
-.section-title span:first-child {
-    color: #FF8A00;
-}
-
-.section-title span:last-child {
-    color: #FF4D4D;
+.section-title span {
+    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 
 .skills-container {
@@ -163,7 +164,7 @@ const Experinces = ref([
 .skill-percentage {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #FF8A00;
+    color: #8B5CF6;
 }
 
 .skill-progress {
@@ -176,7 +177,7 @@ const Experinces = ref([
 
 .skill-bar {
     height: 100%;
-    background: linear-gradient(90deg, #FF8A00, #FF4D4D);
+    background: linear-gradient(90deg, #8B5CF6, #6D28D9);
     border-radius: 4px;
     transition: width 1s ease;
 }
@@ -192,7 +193,7 @@ const Experinces = ref([
     align-items: center;
     gap: 1.5rem;
     background: rgba(30, 41, 59, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
     border-radius: 24px;
     padding: 1.5rem;
     transition: all 0.3s ease;
@@ -201,8 +202,8 @@ const Experinces = ref([
 
 .experience-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 138, 0, 0.3);
-    box-shadow: 0 10px 30px rgba(255, 138, 0, 0.1);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
 }
 
 .experience-icon {
@@ -220,7 +221,7 @@ const Experinces = ref([
 .experience-role {
     font-size: 1.25rem;
     font-weight: 600;
-    background: linear-gradient(to right, #FF8A00, #FF4D4D);
+    background: linear-gradient(to right, #8B5CF6, #6D28D9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;

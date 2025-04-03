@@ -119,12 +119,12 @@ const education=ref([
     gap: 0.5rem;
 }
 
-.section-title span:first-child {
-    color: #FF8A00;
-}
-
-.section-title span:last-child {
-    color: #FF4D4D;
+.section-title span {
+    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 
 .education-list {
@@ -138,7 +138,7 @@ const education=ref([
     align-items: center;
     gap: 1.5rem;
     background: rgba(30, 41, 59, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
     border-radius: 24px;
     padding: 1.5rem;
     transition: all 0.3s ease;
@@ -147,8 +147,8 @@ const education=ref([
 
 .education-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 138, 0, 0.3);
-    box-shadow: 0 10px 30px rgba(255, 138, 0, 0.1);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
 }
 
 .education-icon {
@@ -166,7 +166,7 @@ const education=ref([
 .education-school {
     font-size: 1.25rem;
     font-weight: 600;
-    background: linear-gradient(to right, #FF8A00, #FF4D4D);
+    background: linear-gradient(to right, #8B5CF6, #6D28D9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
@@ -205,7 +205,7 @@ const education=ref([
 
 .stat-card {
     background: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
     border-radius: 16px;
     padding: 1.5rem;
     text-align: center;
@@ -214,14 +214,14 @@ const education=ref([
 
 .stat-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 138, 0, 0.3);
-    box-shadow: 0 10px 30px rgba(255, 138, 0, 0.1);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
 }
 
 .stat-number {
     font-size: 2rem;
     font-weight: 700;
-    background: linear-gradient(to right, #FF8A00, #FF4D4D);
+    background: linear-gradient(to right, #8B5CF6, #6D28D9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;

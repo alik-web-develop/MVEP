@@ -1,4 +1,5 @@
 {
+    "users": [],
     "courses": [
         {
             "id": 1,
@@ -27,7 +28,7 @@
             "title": "Vue.js Mastery",
             "description": "Build modern web applications with Vue 3",
             "platform": "Vue School",
-            "image": "https://images.unsplash.com/photo-1615825196093-0a3e6e561d1b?w=800&auto=format&fit=crop",
+            "image": "https://media.licdn.com/dms/image/v2/C4E1BAQFCCcNLFwlp0g/company-background_10000/company-background_10000/0/1584252944648?e=2147483647&v=beta&t=woO7V39OwTE5vkPkR2q6XW4BHyqr4ZIMbz-FMoI3XI8",
             "courseURL": "https://vueschool.io",
             "price": 4999,
             "likes": 180,
@@ -70,15 +71,18 @@
     "projects": [
         {
             "id": 1,
-            "category": "web development",
-            "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
-            "title": "project 1",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-            "technologies": ["vue.js 3", "vuex", "Express"],
-            "gitURL": "https://github.com",
-            "webURL": "https://example.com",
+            "title": "Портфолио",
+            "description": "Мой личный сайт-портфолио",
+            "image": "/projects/portfolio.jpg",
+            "category": "web",
+            "technologies": ["Vue.js", "Tailwind CSS", "Node.js"],
+            "gitURL": "https://github.com/username/portfolio",
+            "webURL": "https://portfolio.example.com",
             "likes": 0,
-            "dislikes": 0
+            "dislikes": 0,
+            "likedBy": [],
+            "dislikedBy": [],
+            "createdBy": null
         },
         {
             "id": 2,

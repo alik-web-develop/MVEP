@@ -1,6 +1,6 @@
 import initialData from '../store/db.json';
 
-const DB_KEY = 'portfolio_db';
+const DB_KEY = 'mvep_db';
 
 export const initializeDb = () => {
     if (!localStorage.getItem(DB_KEY)) {
@@ -8,35 +8,57 @@ export const initializeDb = () => {
     }
 };
 
-export const readDb = () => {
-    initializeDb();
-    return JSON.parse(localStorage.getItem(DB_KEY));
+export const getDb = () => {
+    return JSON.parse(localStorage.getItem(DB_KEY) || JSON.stringify(initialData));
 };
 
-export const writeDb = (data) => {
+export const updateCourses = (courses) => {
+    const db = getDb();
+    db.courses = courses;
+    localStorage.setItem(DB_KEY, JSON.stringify(db));
+};
+
+export const updateUsers = (users) => {
+    const db = getDb();
+    db.users = users;
+    localStorage.setItem(DB_KEY, JSON.stringify(db));
+};
+
+export const addUser = (user) => {
+    const db = getDb();
+    db.users.push(user);
+    localStorage.setItem(DB_KEY, JSON.stringify(db));
+};
+
+export const updateUser = (userId, updates) => {
+    const db = getDb();
+    const userIndex = db.users.findIndex(u => u.id === userId);
+    if (userIndex !== -1) {
+        db.users[userIndex] = { ...db.users[userIndex], ...updates };
+        localStorage.setItem(DB_KEY, JSON.stringify(db));
+        return true;
+    }
+    return false;
+};
+
+export const updateProjects = (projects) => {
     try {
-        localStorage.setItem(DB_KEY, JSON.stringify(data));
+        const db = getDb();
+        db.projects = projects;
+        localStorage.setItem(DB_KEY, JSON.stringify(db));
         return true;
     } catch (error) {
-        console.error('Error writing to localStorage:', error);
+        console.error('Error updating projects:', error);
         return false;
     }
 };
 
-export const updateProjects = (projects) => {
-    const db = readDb();
-    if (db) {
-        db.projects = projects;
-        return writeDb(db);
+export const getProjects = () => {
+    try {
+        const db = getDb();
+        return db.projects;
+    } catch (error) {
+        console.error('Error reading projects:', error);
+        return [];
     }
-    return false;
-};
-
-export const updateCourses = (courses) => {
-    const db = readDb();
-    if (db) {
-        db.courses = courses;
-        return writeDb(db);
-    }
-    return false;
 }; 
