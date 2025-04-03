@@ -1,0 +1,144 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "title": "Web Development Fundamentals",
+            "description": "Learn HTML, CSS, and JavaScript basics",
+            "platform": "Udemy",
+            "image": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&auto=format&fit=crop",
+            "courseURL": "https://udemy.com",
+            "price": 2999,
+            "likes": 150,
+            "dislikes": 5
+        },
+        {
+            "id": 2,
+            "title": "Advanced JavaScript",
+            "description": "Master modern JavaScript and ES6+ features",
+            "platform": "Coursera",
+            "image": "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&auto=format&fit=crop",
+            "courseURL": "https://coursera.org",
+            "price": 3999,
+            "likes": 230,
+            "dislikes": 8
+        },
+        {
+            "id": 3,
+            "title": "Vue.js Mastery",
+            "description": "Build modern web applications with Vue 3",
+            "platform": "Vue School",
+            "image": "https://images.unsplash.com/photo-1615825196093-0a3e6e561d1b?w=800&auto=format&fit=crop",
+            "courseURL": "https://vueschool.io",
+            "price": 4999,
+            "likes": 180,
+            "dislikes": 4
+        },
+        {
+            "id": 4,
+            "title": "React Development",
+            "description": "Learn React and its ecosystem",
+            "platform": "Udemy",
+            "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop",
+            "courseURL": "https://udemy.com",
+            "price": 4999,
+            "likes": 200,
+            "dislikes": 7
+        },
+        {
+            "id": 5,
+            "title": "Backend Development",
+            "description": "Master Node.js and Express",
+            "platform": "Coursera",
+            "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop",
+            "courseURL": "https://coursera.org",
+            "price": 5999,
+            "likes": 160,
+            "dislikes": 6
+        },
+        {
+            "id": 6,
+            "title": "Full Stack Development",
+            "description": "Become a full stack developer",
+            "platform": "Udemy",
+            "image": "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=800&auto=format&fit=crop",
+            "courseURL": "https://udemy.com",
+            "price": 7999,
+            "likes": 290,
+            "dislikes": 10
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "category": "web development",
+            "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
+            "title": "project 1",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "technologies": ["vue.js 3", "vuex", "Express"],
+            "gitURL": "https://github.com",
+            "webURL": "https://example.com",
+            "likes": 0,
+            "dislikes": 0
+        },
+        {
+            "id": 2,
+            "category": "Mobile App",
+            "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop",
+            "title": "project 2",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "technologies": ["vue.js 3", "vuex", "Express"],
+            "gitURL": "https://github.com",
+            "webURL": "https://example.com",
+            "likes": 0,
+            "dislikes": 0
+        },
+        {
+            "id": 3,
+            "category": "web development",
+            "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop",
+            "title": "project 3",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "technologies": ["vue.js 3", "vuex", "Express"],
+            "gitURL": "https://github.com",
+            "webURL": "https://example.com",
+            "likes": 0,
+            "dislikes": 0
+        },
+        {
+            "id": 4,
+            "category": "Mobile App",
+            "image": "https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=800&auto=format&fit=crop",
+            "title": "project 4",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "technologies": ["vue.js 3", "vuex", "Express"],
+            "gitURL": "https://github.com",
+            "webURL": "https://example.com",
+            "likes": 0,
+            "dislikes": 0
+        },
+        {
+            "id": 5,
+            "category": "web development",
+            "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop",
+            "title": "project 5",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "technologies": ["vue.js 3", "vuex", "Express"],
+            "gitURL": "https://github.com",
+            "webURL": "https://example.com",
+            "likes": 0,
+            "dislikes": 0
+        },
+        {
+            "id": 6,
+            "category": "Mobile App",
+            "image": "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=800&auto=format&fit=crop",
+            "title": "project 6",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "technologies": ["vue.js 3", "vuex", "Express"],
+            "gitURL": "https://github.com",
+            "webURL": "https://example.com",
+            "likes": 0,
+            "dislikes": 0
+        }
+    ]
+} 

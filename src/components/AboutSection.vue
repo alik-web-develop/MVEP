@@ -1,58 +1,57 @@
-<template >
-    <section class="text-white mt-18" id="about">
-        <div class="absolute z-0 top-[93rem] inset-x-0 h-64 flex items-start">
-            <div class="h-24 w-64 bg-gradient-to-br from-primary via-secondary blur-2xl to-[#570cac] opacity-20"></div>
-        </div>
-        <div class="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 z-1">
-            <div data-aos="flip-right">
-                <h2 class="text-4xl font-bold text-white text-left mb-8">My Education</h2>
-                <div class="space-y-8 py-8">
+<template>
+    <section class="about-section" id="about">
+        <div class="content-wrapper">
+            <div class="education-container">
+                <h2 class="section-title">
+                    <span>My</span>
+                    <span>Education</span>
+                </h2>
+                <div class="education-list">
                     <div v-for="element in education" :key="element.id"
-                    class="flex items-center md:w-[80%] w-full rounded-xl bg-[#111a3e] shadow-lg border border-[#1f1641]"
+                        class="education-card"
                     >
-                        <div class="w-1/4">
-                            <img src="https://img.icons8.com/ios-glyphs/60/ffffff/graduation-cap--v1.png" alt="graduation-cap--v1">
+                        <div class="education-icon">
+                            <img src="https://img.icons8.com/ios-glyphs/60/ffffff/graduation-cap--v1.png" alt="education icon">
                         </div>
-                        <div class="w-3/4 pl-4">
-                            <h3 class="text-2xl font-semibold uppercase text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary lg:text-xl">
-                                {{ element.School }}
-                            </h3>
-                            <p class="text-white">{{ element.program }}</p>
-                            <p class="text-white">{{ element.year }}</p>
+                        <div class="education-info">
+                            <h3 class="education-school">{{ element.School }}</h3>
+                            <p class="education-program">{{ element.program }}</p>
+                            <p class="education-year">{{ element.year }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="mt-4 md:mt-0 text-left flex flex-col z-10 h-full" data-aos="flip-right">
-                <h2 class="text-4xl font-bold text-white md:text-center text-left mb-4">More
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">About</span>
-                    Me
+            <div class="about-container">
+                <h2 class="section-title">
+                    <span>About</span>
+                    <span>Me</span>
                 </h2>
-                <p class="text-base lg:text-lg mt-8 py-8"> Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                     Qui facere libero cupiditate fugit minima voluptates numquam est eos voluptate saepe
-                      eius amet harum provident accusamus omnis sit in cum incidunt dolorum, necessitatibus 
-                      illo reiciendis ipsam debitis velit! Itaque officia architecto fugit, cum dolorum eos dolore 
-                      quaerat quis nobis id similique!
+                <p class="about-text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Qui facere libero cupiditate fugit minima voluptates numquam est eos voluptate saepe
+                    eius amet harum provident accusamus omnis sit in cum incidunt dolorum, necessitatibus
+                    illo reiciendis ipsam debitis velit! Itaque officia architecto fugit, cum dolorum eos dolore
+                    quaerat quis nobis id similique!
                 </p>
-                <div class="grid grid-cols-3 gap-4 max-w-lg pt-8">
-                    <div class="text-center rounded-xl bg-[#111a3e] shadow-lg border border-[#1f1641] p-3">
-                        <h3 class="text-white font-bold text-xl sm:text-2xl lg:text-3xl">+200</h3>
-                        <p class="text-sm sm:text-base text-gray-300">Happy Client</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 class="stat-number">+200</h3>
+                        <p class="stat-label">Happy Client</p>
                     </div>
-                    <div class="text-center rounded-xl bg-[#111a3e] shadow-lg border border-[#1f1641] p-3">
-                        <h3 class="text-white font-bold text-xl sm:text-2xl lg:text-3xl">+300</h3>
-                        <p class="text-sm sm:text-base text-gray-300">Project</p>
+                    <div class="stat-card">
+                        <h3 class="stat-number">+300</h3>
+                        <p class="stat-label">Project</p>
                     </div>
-
-                    <div class="text-center rounded-xl bg-[#111a3e] shadow-lg border border-[#1f1641] p-3">
-                        <h3 class="text-white font-bold text-xl sm:text-2xl lg:text-3xl">+7</h3>
-                        <p class="text-sm sm:text-base text-gray-300"> Years Experience</p>
+                    <div class="stat-card">
+                        <h3 class="stat-number">+7</h3>
+                        <p class="stat-label">Years Experience</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </template>
+
 <script setup>
 import { ref } from 'vue';
 const education=ref([
@@ -70,3 +69,188 @@ const education=ref([
     }
 ])
 </script>
+
+<style scoped>
+.about-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #0B0B21 0%, #111a3e 50%, #0B0B21 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(87, 12, 172, 0.2) 0%, rgba(87, 12, 172, 0) 100%);
+    pointer-events: none;
+}
+
+.about-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(0deg, rgba(87, 12, 172, 0.2) 0%, rgba(87, 12, 172, 0) 100%);
+    pointer-events: none;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    text-align: left;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.section-title span:first-child {
+    color: #FF8A00;
+}
+
+.section-title span:last-child {
+    color: #FF4D4D;
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.education-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 138, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 138, 0, 0.1);
+}
+
+.education-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+.education-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.education-school {
+    font-size: 1.25rem;
+    font-weight: 600;
+    background: linear-gradient(to right, #FF8A00, #FF4D4D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.education-program {
+    color: #fff;
+    margin-bottom: 0.25rem;
+}
+
+.education-year {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.about-container {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.about-text {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 138, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 138, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #FF8A00, #FF4D4D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .section-title {
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

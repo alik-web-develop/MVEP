@@ -1,10 +1,10 @@
 <template>
-    <header class="flex justify-between items-center p-6 bg-opacity-50 relative z-20 ">
-        <div class="text-white text-3xl font-bold">LOGO</div>
+    <header class="fixed top-0 left-0 right-0 flex justify-between items-center p-6 backdrop-blur-md z-50">
+        <div class="text-white text-3xl font-bold hover:text-primary transition-colors duration-300">LOGO</div>
         <!-- Mobile Toggle Button -->
          <div class="md:hidden z-30">
          <button type="button" 
-         class="block focus:outline-none"
+         class="block focus:outline-none hover:opacity-80 transition-opacity duration-300"
          @click="isMenuOpen = !isMenuOpen"
          >
             <span v-if="isMenuOpen" class="text-5xl">
@@ -17,14 +17,14 @@
         </div>
          <!-- Navbar Link -->
           <nav
-          :class="['fixed inset-0 z-20 flex flex-col items-center justify-center bg-[#111827] md:relative md:bg-transparent md:flex md:justify-between md:flex-row',
+          :class="['fixed inset-0 z-20 flex flex-col items-center justify-center backdrop-blur-md md:relative md:bg-transparent md:flex md:justify-center md:flex-grow transition-all duration-300',
             isMenuOpen ? 'block':'hidden'
           ]"
           >
-            <ul class="flex flex-col items-center space-y-5 md:flex-row md:space-x-5 md:space-y-0">
+            <ul class="flex flex-col items-center space-y-5 md:flex-row md:space-x-8 md:space-y-0">
                 <li v-for="item in Menu" :key="item.name">
                     <a :href="item.href" 
-                    class="block text-white transition hover:text-primary ease-linear text-2xl md:text-lg"
+                    class="block text-white transition-all duration-300 hover:text-primary hover:scale-105 text-2xl md:text-lg font-medium"
                     @click="scrollToSection(item.href)"
                     >
                         {{ item.name }}
@@ -41,7 +41,6 @@ const Menu =ref([
     {name:'About Me',href:'#about'},
     {name:'Skills',href:'#skills'},
     {name:'Projects',href:'#projects'},
-    {name:'Testimonials',href:'#testimonials'},
     {name:'Contact',href:'#contact'},
 ]);
 
@@ -50,9 +49,24 @@ const scrollToSection =(href)=>{
     isMenuOpen.value=false;
     const section=document.querySelector(href);
     if(section){
-        section.scrollIntoView({behavior :'smooth'});
+        section.scrollIntoView({ behavior: 'smooth' });
     }
-
 }
 
 </script>
+
+<style>
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+header {
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    nav.block {
+        background: rgba(17, 24, 39, 0.8);
+    }
+}
+</style>

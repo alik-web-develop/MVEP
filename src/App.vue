@@ -10,9 +10,10 @@
             <ServicesSection />
             <AboutSection />
             <ExperienceAndSkills />
+            <CoursesSection />
             <LatestProjSection />
-            <ContactSection />
             <TestimonialsSection />
+            <ContactSection />
             <Footer />
             <BackToTop />
       </div>
@@ -37,15 +38,21 @@ const TestimonialsSection = defineAsyncComponent(()=>import('@/components/Testim
 const LatestProjSection = defineAsyncComponent(()=>import('@/components/LatestProjSection.vue'));
 const ExperienceAndSkills = defineAsyncComponent(()=>import('@/components/ExperienceAndSkills.vue'));
 const ContactSection = defineAsyncComponent(()=>import('@/components/ContactSection.vue'));
+const CoursesSection = defineAsyncComponent(()=>import('@/components/CoursesSection.vue'));
 const Footer = defineAsyncComponent(()=>import('@/components/Footer.vue'));
 const BackToTop = defineAsyncComponent(()=>import('@/components/BackToTop.vue'));
 import loadingSpinner from './components/loadingSpinner.vue';
 </script>
 <style>
-
 *{
   scrollbar-width: thin;
   scrollbar-color: #111827 #f1f1f1;
+}
+
+section {
+  scroll-margin-top: 120px;
+  scroll-behavior: smooth;
+  padding-top: 80px;
 }
 </style>
 
