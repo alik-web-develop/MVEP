@@ -7,13 +7,13 @@
           <h1>Войти</h1>
           <div class="social-container">
             <a href="#" class="social" @click.prevent="signInWithGoogle">
-              <font-awesome-icon :icon="['fab', 'google']" />
+              <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" width="24" height="24">
             </a>
             <a href="#" class="social">
-              <font-awesome-icon :icon="['fab', 'facebook']" />
+              <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" width="24" height="24">
             </a>
             <a href="#" class="social">
-              <font-awesome-icon :icon="['fab', 'steam']" />
+              <img src="https://img.icons8.com/color/48/000000/steam.png" alt="Steam" width="24" height="24">
             </a>
           </div>
           <span>или используйте email для входа</span>
@@ -29,13 +29,13 @@
           <h1>Создать аккаунт</h1>
           <div class="social-container">
             <a href="#" class="social" @click.prevent="signInWithGoogle">
-              <font-awesome-icon :icon="['fab', 'google']" />
+              <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google" width="24" height="24">
             </a>
             <a href="#" class="social">
-              <font-awesome-icon :icon="['fab', 'facebook']" />
+              <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" width="24" height="24">
             </a>
             <a href="#" class="social">
-              <font-awesome-icon :icon="['fab', 'steam']" />
+              <img src="https://img.icons8.com/color/48/000000/steam.png" alt="Steam" width="24" height="24">
             </a>
           </div>
           <span>или используйте email для регистрации</span>
@@ -92,6 +92,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faGoogle, faFacebook, faSteam } from '@fortawesome/free-brands-svg-icons'
 import Toastify from 'toastify-js'
 import 'toastify-js/src/toastify.css'
+import { useAuthStore } from '../store/auth'
+import { useRouter } from 'vue-router'
 
 // Добавляем иконки в библиотеку
 library.add(faGoogle, faFacebook, faSteam)
@@ -107,6 +109,9 @@ const isClosing = ref(false)
 
 // Инициализация Google Auth
 let auth2;
+
+const authStore = useAuthStore()
+const router = useRouter()
 
 onMounted(() => {
   // Загружаем Google API Client
@@ -208,53 +213,9 @@ const registerFn = async () => {
 
 const loginFn = async () => {
   try {
-    if (!loginName.value || !loginPass.value) {
-      showAlert('Пожалуйста, заполните все поля', 'error')
-      return
-    }
-
-    // Проверяем формат email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(loginName.value)) {
-      showAlert('Пожалуйста, введите корректный email', 'error')
-      return
-    }
-
-    // Входим через Firebase
-    const userCredential = await signInWithEmailAndPassword(auth, loginName.value, loginPass.value)
-    const firebaseUser = userCredential.user
-
-    // Проверяем/создаем пользователя в нашей базе
-    const response = await fetch('http://localhost:3000/users')
-    const users = await response.json()
-    let user = users.find(u => u.email === loginName.value)
-
-    if (!user) {
-      // Создаем пользователя в нашей базе
-      const newUser = {
-        username: loginName.value.split('@')[0],
-        email: loginName.value,
-        firebaseId: firebaseUser.uid,
-        likes: [],
-        favorites: []
-      }
-
-      const createResponse = await fetch('http://localhost:3000/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newUser)
-      })
-
-      user = await createResponse.json()
-    }
-
-    localStorage.setItem('user', JSON.stringify(user))
-    showAlert('Успешный вход!', 'success')
-    loginName.value = ''
-    loginPass.value = ''
-    emit('close')
+    await authStore.login(loginName.value, loginPass.value)
+    closeModal()
+    router.push('/profile')
   } catch (error) {
     console.error('Ошибка при входе:', error)
     showAlert('Неверный email или пароль', 'error')
@@ -263,50 +224,11 @@ const loginFn = async () => {
 
 const signInWithGoogle = async () => {
   try {
-    const provider = new GoogleAuthProvider()
-    provider.setCustomParameters({
-      prompt: 'select_account'
-    })
-    const result = await signInWithPopup(auth, provider)
-    const user = result.user
-    
-    // Проверяем, существует ли пользователь
-    const checkResponse = await fetch('http://localhost:3000/users')
-    const users = await checkResponse.json()
-    const existingUser = users.find(u => u.email === user.email)
-
-    if (existingUser) {
-      localStorage.setItem('user', JSON.stringify(existingUser))
-      showAlert('Успешный вход через Google!', 'success')
-      emit('close')
-    } else {
-      // Создаем пользователя в нашей базе
-      const userData = {
-        username: user.displayName || user.email.split('@')[0],
-        email: user.email,
-        firebaseId: user.uid,
-        avatar: user.photoURL,
-        likes: [],
-        favorites: []
-      }
-
-      const response = await fetch('http://localhost:3000/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-      })
-
-      if (response.ok) {
-        const newUser = await response.json()
-        localStorage.setItem('user', JSON.stringify(newUser))
-        showAlert('Успешная регистрация через Google!', 'success')
-        emit('close')
-      }
-    }
+    await authStore.signInWithGoogle()
+    closeModal()
+    router.push('/profile')
   } catch (error) {
-    console.error('Ошибка входа через Google:', error)
+    console.error('Ошибка при входе через Google:', error)
     showAlert(error.message, 'error')
   }
 }

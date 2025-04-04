@@ -19,7 +19,7 @@
                     <img src="https://img.icons8.com/ios-filled/100/ffffff/delete-sign.png" alt="close" width="50" height="50">
                 </span>
                 <span v-else class="text-5xl">
-                    <img src="https://img.icons8.com/ios-filled/100/ffffff/menu--v6.png" alt="menu" width="50" height="50">
+                    <img src="https://img.icons8.com/ios-filled/100/ffffff/menu.png" alt="menu" width="50" height="50">
                 </span>
             </button>
         </div>
@@ -96,11 +96,12 @@
 import { ref, onMounted, watch, onUnmounted } from 'vue';
 import { useAuth } from '../composables/useAuth';
 import AuthModal from './AuthModal.vue';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUser, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+// Закомментируем импорты Font Awesome
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { faUser, faCog, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 // Добавляем иконки
-library.add(faUser, faCog, faSignOutAlt)
+// library.add(faUser, faCog, faSignOutAlt)
 
 const Menu = ref([
     {name:'Services',href:'#services'},

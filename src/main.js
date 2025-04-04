@@ -5,9 +5,10 @@ import App from './App.vue'
 import router from './router'
 
 // Font Awesome
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faGoogle, faFacebook, faSteam } from '@fortawesome/free-brands-svg-icons'
+// import '@fortawesome/fontawesome-svg-core/styles.css'
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+// import { faGoogle, faFacebook, faSteam } from '@fortawesome/free-brands-svg-icons'
 
 import './firebase/config.js'
 
@@ -35,10 +36,10 @@ app.config.warnHandler = (msg, vm, trace) => {
 };
 
 // Добавляем иконки в библиотеку
-library.add(faGoogle, faFacebook, faSteam)
+// library.add(faGoogle, faFacebook, faSteam)
 
 // Регистрируем компонент Font Awesome глобально
-app.component('font-awesome-icon', FontAwesomeIcon)
+// app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(router)
 app.mount('#app')
