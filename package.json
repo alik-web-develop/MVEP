@@ -10,6 +10,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@heroicons/vue": "^2.2.0",
     "aos": "^2.3.4",
     "firebase": "^11.6.0",

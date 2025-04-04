@@ -5,7 +5,6 @@ import App from './App.vue'
 import router from './router'
 
 // Font Awesome
-import '@fortawesome/fontawesome-svg-core/styles.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faGoogle, faFacebook, faSteam } from '@fortawesome/free-brands-svg-icons'
