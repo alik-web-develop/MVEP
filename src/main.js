@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import { initializeDb } from './utils/dbUtils'
 import './style.css'
 import App from './App.vue'
@@ -20,6 +21,7 @@ try {
 }
 
 const app = createApp(App);
+const pinia = createPinia();
 
 // Глобальная обработка ошибок
 app.config.errorHandler = (err, vm, info) => {
@@ -41,5 +43,6 @@ app.config.warnHandler = (msg, vm, trace) => {
 // Регистрируем компонент Font Awesome глобально
 // app.component('font-awesome-icon', FontAwesomeIcon)
 
+app.use(pinia)
 app.use(router)
 app.mount('#app')
