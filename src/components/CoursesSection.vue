@@ -407,5 +407,46 @@ const checkout = () => {
     gap: 1.5rem;
     text-align: center;
   }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      transform: none;
+      color: #94a3b8;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .course-card {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .course-image {
+    width: 100%;
+    height: 300px;
+  }
+
+  .course-info {
+    padding: 2rem;
+  }
+
+  .price-section {
+    padding: 0 2rem 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-section {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
 }
 </style> 

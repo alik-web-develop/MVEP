@@ -2,6 +2,15 @@ import { createApp } from 'vue'
 import { initializeDb } from './utils/dbUtils'
 import './style.css'
 import App from './App.vue'
+import router from './router'
+
+// Font Awesome
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faGoogle, faFacebook, faSteam } from '@fortawesome/free-brands-svg-icons'
+
+import './firebase/config.js'
 
 // Инициализируем базу данных при запуске
 try {
@@ -26,4 +35,11 @@ app.config.warnHandler = (msg, vm, trace) => {
     console.warn('Trace:', trace);
 };
 
-app.mount('#app');
+// Добавляем иконки в библиотеку
+library.add(faGoogle, faFacebook, faSteam)
+
+// Регистрируем компонент Font Awesome глобально
+app.component('font-awesome-icon', FontAwesomeIcon)
+
+app.use(router)
+app.mount('#app')
